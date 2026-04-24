@@ -1,6 +1,7 @@
 import { useTranslation } from "../core/i18n/useTranslation";
 import { useTenant } from "../core/tenant/useTenant";
 import { FeaturedProductSection } from "../features/landing/FeaturedProductSection";
+import { FooterSection } from "../features/landing/FooterSection";
 import { HeroSection } from "../features/landing/HeroSection";
 import { OrderingRulesSection } from "../features/landing/OrderingRulesSection";
 
@@ -26,10 +27,7 @@ export function HomePage() {
         orderingRules={business.orderingRules}
       />
 
-      <footer>
-        <p>{business.name}</p>
-        <p>{business.contact.email}</p>
-      </footer>
+      <FooterSection business={business} />
     </main>
   );
 }
