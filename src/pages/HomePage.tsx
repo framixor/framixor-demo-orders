@@ -1,9 +1,9 @@
-// src/pages/HomePage.tsx
-
+import { useTranslation } from "../core/i18n/useTranslation";
 import { useTenant } from "../core/tenant/useTenant";
 
 export function HomePage() {
   const { business, theme } = useTenant();
+  const { t } = useTranslation();
 
   return (
     <main
@@ -42,7 +42,7 @@ export function HomePage() {
       </section>
 
       <section>
-        <h2>Ordering rules</h2>
+        <h2>{t.common.orderingRulesTitle}</h2>
         <p>{business.orderingRules.pickup}</p>
         <p>{business.orderingRules.shipping}</p>
       </section>

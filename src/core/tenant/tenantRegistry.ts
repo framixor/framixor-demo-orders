@@ -2,6 +2,7 @@
 
 import { bloomOvenBusiness } from "../../tenants/bloom-oven/business";
 import { bloomOvenTheme } from "../../tenants/bloom-oven/theme";
+import { bloomOvenTranslations } from "../../tenants/bloom-oven/translations";
 import type { TenantContract } from "./tenant.types";
 
 export const tenantRegistry = {
@@ -10,6 +11,7 @@ export const tenantRegistry = {
     slug: "bloom-oven",
     business: bloomOvenBusiness,
     theme: bloomOvenTheme,
+    translations: bloomOvenTranslations,
   },
 } satisfies Record<string, TenantContract>;
 
