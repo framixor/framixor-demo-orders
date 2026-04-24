@@ -1,5 +1,8 @@
 import { useTranslation } from "../core/i18n/useTranslation";
 import { useTenant } from "../core/tenant/useTenant";
+import { FeaturedProductSection } from "../features/landing/FeaturedProductSection";
+import { HeroSection } from "../features/landing/HeroSection";
+import { OrderingRulesSection } from "../features/landing/OrderingRulesSection";
 
 export function HomePage() {
   const { business, theme } = useTenant();
@@ -14,38 +17,14 @@ export function HomePage() {
         padding: "2rem",
       }}
     >
-      <section>
-        <p>{business.hero.eyebrow}</p>
-        <h1>{business.hero.title}</h1>
-        <p>{business.hero.subtitle}</p>
+      <HeroSection hero={business.hero} theme={theme} />
 
-        <button
-          style={{
-            background: theme.colors.primary,
-            color: theme.colors.primaryForeground,
-            border: "none",
-            padding: "0.75rem 1rem",
-            borderRadius: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          {business.hero.ctaLabel}
-        </button>
-      </section>
+      <FeaturedProductSection featuredProduct={business.featuredProduct} />
 
-      <section>
-        <h2>{business.featuredProduct.name}</h2>
-        <p>{business.featuredProduct.description}</p>
-        <strong>
-          ${business.featuredProduct.price} {business.featuredProduct.currency}
-        </strong>
-      </section>
-
-      <section>
-        <h2>{t.common.orderingRulesTitle}</h2>
-        <p>{business.orderingRules.pickup}</p>
-        <p>{business.orderingRules.shipping}</p>
-      </section>
+      <OrderingRulesSection
+        title={t.common.orderingRulesTitle}
+        orderingRules={business.orderingRules}
+      />
 
       <footer>
         <p>{business.name}</p>
