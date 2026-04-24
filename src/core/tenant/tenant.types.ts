@@ -42,6 +42,21 @@ export type ThemeContract = {
     primary: string;
     primaryForeground: string;
     muted: string;
+    surface: string;
+    surfaceAlt: string;
+    border: string;
+    textMuted: string;
+  };
+  radius: {
+    sm: string;
+    md: string;
+    lg: string;
+  };
+  spacing: {
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
   };
 };
 
