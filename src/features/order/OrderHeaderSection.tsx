@@ -1,3 +1,4 @@
+// src/features/order/OrderHeaderSection.tsx
 import { useTranslation } from "../../core/i18n/useTranslation";
 import type { TenantSectionProps } from "../../core/ui/ui.types";
 
@@ -6,19 +7,40 @@ export function OrderHeaderSection({ tenant }: TenantSectionProps) {
   const { t } = useTranslation();
 
   return (
-    <header style={{ marginBottom: theme.spacing.lg }}>
-      <a
-        href="/"
+    <header
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: theme.spacing.xl,
+      }}
+    >
+      <nav>
+        <a
+          href="/"
+          style={{
+            color: theme.colors.primary,
+            display: "inline-flex",
+            alignItems: "center",
+          }}
+        >
+          ← {t.order.backToHome} {business.name}
+        </a>
+      </nav>
+
+      <div
         style={{
-          color: theme.colors.primary,
-          display: "inline-block",
-          marginBottom: theme.spacing.md,
+          display: "flex",
+          flexDirection: "column",
+          gap: theme.spacing.sm,
         }}
       >
-        ← {t.order.backToHome} {business.name}
-      </a>
-
-      <h1>{t.order.title}</h1>
+        <h1 style={{ margin: 0, color: theme.colors.foreground }}>
+          {t.order.title}
+        </h1>
+        <p style={{ margin: 0, color: theme.colors.textMuted }}>
+          {business.hero.subtitle}
+        </p>
+      </div>
     </header>
   );
 }
