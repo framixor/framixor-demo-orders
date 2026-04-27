@@ -1,14 +1,8 @@
-import type {
-  BusinessContract,
-  ThemeContract,
-} from "../../core/tenant/tenant.types";
+import type { TenantSectionProps } from "../../core/ui/ui.types";
 
-type FooterSectionProps = {
-  business: Pick<BusinessContract, "name" | "contact">;
-  theme: ThemeContract;
-};
+export function FooterSection({ tenant }: TenantSectionProps) {
+  const { business, theme } = tenant;
 
-export function FooterSection({ business, theme }: FooterSectionProps) {
   return (
     <footer
       style={{
