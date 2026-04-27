@@ -1,3 +1,4 @@
+import { formatCurrency } from "../../core/formatting/currency";
 import type { TenantSectionProps } from "../../core/ui/ui.types";
 
 export function FeaturedProductSection({ tenant }: TenantSectionProps) {
@@ -21,7 +22,7 @@ export function FeaturedProductSection({ tenant }: TenantSectionProps) {
       </p>
 
       <strong>
-        ${featuredProduct.price} {featuredProduct.currency}
+        {formatCurrency(featuredProduct.price, featuredProduct.currency)}
       </strong>
     </section>
   );

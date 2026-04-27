@@ -1,3 +1,4 @@
+import { formatCurrency } from "../../core/formatting/currency";
 import type { TenantSectionProps } from "../../core/ui/ui.types";
 
 export function OrderListSection({ tenant }: TenantSectionProps) {
@@ -38,7 +39,7 @@ export function OrderListSection({ tenant }: TenantSectionProps) {
           )}
 
           <strong>
-            ${product.price} {product.currency}
+            {formatCurrency(product.price, product.currency)}
           </strong>
         </article>
       ))}
