@@ -1,17 +1,10 @@
-import type {
-  BusinessContract,
-  ThemeContract,
-} from "../../core/tenant/tenant.types";
+import { formatCurrency } from "../../core/formatting/currency";
+import type { TenantSectionProps } from "../../core/ui/ui.types";
 
-type FeaturedProductSectionProps = {
-  featuredProduct: BusinessContract["featuredProduct"];
-  theme: ThemeContract;
-};
+export function FeaturedProductSection({ tenant }: TenantSectionProps) {
+  const { business, theme } = tenant;
+  const { featuredProduct } = business;
 
-export function FeaturedProductSection({
-  featuredProduct,
-  theme,
-}: FeaturedProductSectionProps) {
   return (
     <section
       style={{
@@ -29,7 +22,7 @@ export function FeaturedProductSection({
       </p>
 
       <strong>
-        ${featuredProduct.price} {featuredProduct.currency}
+        {formatCurrency(featuredProduct.price, featuredProduct.currency)}
       </strong>
     </section>
   );
