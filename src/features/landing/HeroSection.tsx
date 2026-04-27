@@ -17,8 +17,8 @@ export function HeroSection({ hero, theme }: HeroSectionProps) {
           background: theme.colors.primary,
           color: theme.colors.primaryForeground,
           border: "none",
-          padding: "0.75rem 1rem",
-          borderRadius: "0.5rem",
+          padding: `${theme.spacing.sm} ${theme.spacing.md}`,
+          borderRadius: theme.radius.md,
           cursor: "pointer",
         }}
       >
