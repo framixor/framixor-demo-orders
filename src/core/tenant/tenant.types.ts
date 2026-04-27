@@ -1,4 +1,5 @@
 // src/core/tenant/tenant.types.ts
+import type { CatalogContract } from "../catalog/catalog.types";
 import type { Language, TranslationDictionary } from "../i18n/i18n.types";
 
 export type CurrencyCode = "USD" | "BRL";
@@ -64,4 +65,5 @@ export type TenantContract = TenantIdentity & {
   business: BusinessContract;
   theme: ThemeContract;
   translations: Record<Language, TranslationDictionary>;
+  catalog: CatalogContract;
 };
