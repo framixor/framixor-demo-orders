@@ -1,19 +1,11 @@
-import type {
-  BusinessContract,
-  ThemeContract,
-} from "../../core/tenant/tenant.types";
+import { useTranslation } from "../../core/i18n/useTranslation";
+import type { TenantSectionProps } from "../../core/ui/ui.types";
 
-type OrderingRulesSectionProps = {
-  title: string;
-  orderingRules: BusinessContract["orderingRules"];
-  theme: ThemeContract;
-};
+export function OrderingRulesSection({ tenant }: TenantSectionProps) {
+  const { business, theme } = tenant;
+  const { orderingRules } = business;
+  const { t } = useTranslation();
 
-export function OrderingRulesSection({
-  title,
-  orderingRules,
-  theme,
-}: OrderingRulesSectionProps) {
   return (
     <section
       style={{
@@ -23,7 +15,7 @@ export function OrderingRulesSection({
         marginBottom: theme.spacing.lg,
       }}
     >
-      <h2>{title}</h2>
+      <h2>{t.common.orderingRulesTitle}</h2>
 
       <p style={{ color: theme.colors.textMuted }}>
         {orderingRules.pickup}

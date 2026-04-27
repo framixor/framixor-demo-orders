@@ -1,17 +1,9 @@
-import type {
-  BusinessContract,
-  ThemeContract,
-} from "../../core/tenant/tenant.types";
+import type { TenantSectionProps } from "../../core/ui/ui.types";
 
-type FeaturedProductSectionProps = {
-  featuredProduct: BusinessContract["featuredProduct"];
-  theme: ThemeContract;
-};
+export function FeaturedProductSection({ tenant }: TenantSectionProps) {
+  const { business, theme } = tenant;
+  const { featuredProduct } = business;
 
-export function FeaturedProductSection({
-  featuredProduct,
-  theme,
-}: FeaturedProductSectionProps) {
   return (
     <section
       style={{
