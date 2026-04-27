@@ -15,19 +15,23 @@ export function HomePage() {
         background: theme.colors.background,
         color: theme.colors.foreground,
         minHeight: "100vh",
-        padding: "2rem",
+        padding: theme.spacing.lg,
       }}
     >
       <HeroSection hero={business.hero} theme={theme} />
 
-      <FeaturedProductSection featuredProduct={business.featuredProduct} />
+      <FeaturedProductSection
+        featuredProduct={business.featuredProduct}
+        theme={theme}
+      />
 
       <OrderingRulesSection
         title={t.common.orderingRulesTitle}
         orderingRules={business.orderingRules}
+        theme={theme}
       />
 
-      <FooterSection business={business} />
+      <FooterSection business={business} theme={theme} />
     </main>
   );
 }
