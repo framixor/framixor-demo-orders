@@ -1,7 +1,9 @@
+import { useTranslation } from "../core/i18n/useTranslation";
 import { useTenant } from "../core/tenant/useTenant";
 
 export function OrderPage() {
   const { business, catalog, theme } = useTenant();
+  const { t } = useTranslation();
 
   return (
     <main
@@ -12,13 +14,26 @@ export function OrderPage() {
         padding: theme.spacing.lg,
       }}
     >
-      <a href="/" style={{ color: theme.colors.primary }}>
-        ← Back to {business.name}
+      <a
+        href="/"
+        style={{
+          color: theme.colors.primary,
+          display: "inline-block",
+          marginBottom: theme.spacing.md,
+        }}
+      >
+        ← {t.order.backToHome} {business.name}
       </a>
 
-      <h1>Build your order</h1>
+      <h1>{t.order.title}</h1>
 
-      <section>
+      <section
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: theme.spacing.lg,
+        }}
+      >
         {catalog.products.map((product) => (
           <article
             key={product.id}
@@ -29,7 +44,6 @@ export function OrderPage() {
               padding: theme.spacing.lg,
               borderRadius: theme.radius.lg,
               border: `1px solid ${theme.colors.border}`,
-              marginBottom: theme.spacing.lg,
             }}
           >
             {product.badge && <p>{product.badge}</p>}
