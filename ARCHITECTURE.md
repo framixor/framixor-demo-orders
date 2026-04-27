@@ -43,3 +43,13 @@ AI tools must not:
 ## Current Design Constraint
 
 The current UI is intentionally minimal. Visual polish should happen inside existing landing components first.
+
+## Implementation Enforcement
+
+Before submitting AI-generated changes:
+
+- Run `npm run build`.
+- Verify tenant-specific text exists only in `business.ts` or `translations.ts`.
+- Verify tenant-specific colors exist only in `theme.ts`.
+- Verify landing components receive data through typed props.
+- Verify AI output includes a short execution report listing changed files and confirming which architecture rules were followed.
